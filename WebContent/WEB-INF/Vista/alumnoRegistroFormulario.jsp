@@ -12,13 +12,24 @@
 	<form:form action="procesarFormulario" modelAttribute="alumno1">
 	
 	 	Nombre : <form:input path="nombre"/>
-	 	
+	 	<form:errors path="nombre" style="color:red;"/>
 	 	<br><br><br>
 	 	
 	 	Apellido : <form:input path="apellido"/>
 	 	
 	 	<br><br><br>
 	 	
+	 	Edad : <form:input path="edad"/>
+	 	<form:errors path="edad" style="color:red;"/>
+	 	<br><br><br>
+	 	
+	 	Email : <form:input path="email"/>
+	 	<form:errors path="email" style="color:red;"/>
+	 	<br><br><br>
+	 	
+	 	Codigo postal : <form:input path="codigoPostal"/>
+	 	<form:errors path="codigoPostal" style="color:red;"/>
+	 	<br><br><br>
 	 	Asignaturas optativas: <br>
 	 	
 	 	<form:select path="optativa" multiple="true"> 

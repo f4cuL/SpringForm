@@ -1,16 +1,27 @@
 package es.pildoras.spring.mvc;
 
+import javax.validation.Valid;
+
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/alumno")
 public class AlumnoController {
+	
+	@InitBinder
+	public void miBinder(WebDataBinder Binder) {
+		StringTrimmerEditor recortaEspaciosBlancos = new StringTrimmerEditor(true);
+		
+		Binder.registerCustomEditor(String.class, recortaEspaciosBlancos);
+	}
 	
 	@RequestMapping("/muestraFormulario")
 	public String mostrarFormulario(Model modelo) {
